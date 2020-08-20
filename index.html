@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>网易云音乐</title>
+    <link rel="stylesheet" href="components/fontawesome/css/fontawesome.min.css">
+    <link href="components/fontawesome/css/brands.css" rel="stylesheet">
+    <link href="components/fontawesome/css/solid.css" rel="stylesheet">
+    <style>
+        body p{
+            font-family: "Microsoft YaHei UI";
+            font-size: 0.8rem;
+            color: #5c5c5c;
+        }
+        .page_header{
+            position: fixed;
+            top:0;
+            left: 0;
+            height: 60px;
+            width: 100%;
+            background-color: #cb2f2f;
+            z-index: 1;
+        }
+        .page_footer{
+            position: fixed;
+            bottom:0;
+            left: 0;
+            height: 60px;
+            width: 100%;
+            background-color: #f6f6f8;
+            border: 1px solid #e1e1e2;
+            z-index: 1;
+        }
+        .page_menu{
+            position: fixed;
+            top:0;
+            left: 0;
+            width: 220px;
+            height: 100%;
+            background-color: #f6f6f8;
+            border: 1px solid #e1e1e2;
+            padding: 60px 0 120px 0;
+            box-sizing:  border-box;
+        }
+        .menu_list{
+            height: 100%;
+            box-sizing: border-box;
+            overflow-y:scroll;
+        }
+        .menu_list::-webkit-scrollbar {/*滚动条整体样式*/
+            width: 4px;     /*高宽分别对应横竖滚动条的尺寸*/
+            height: 4px;
+            scrollbar-arrow-color:red;
+
+        }
+        .menu_list::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+            border-radius: 5px;
+            -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+            background: rgba(0,0,0,0.2);
+            scrollbar-arrow-color:red;
+        }
+        .menu_list::-webkit-scrollbar-track {/*滚动条里面轨道*/
+            -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+            border-radius: 0;
+            background: rgba(0,0,0,0.1);
+        }
+        .menu_list>.list{
+
+        }
+        .menu_list>.list>.title{
+            margin-left: 10px;
+            line-height: 1.5rem;
+        }
+        .menu_list>.list>.btngroups{
+            margin-left: 20px;
+            line-height: 1.5rem;
+        }
+        .menu_list>.list>.btngroups>.btn>i{
+            display: inline-block;
+            margin-right: 0.5rem;
+        }
+        .favourite-music{
+            display: inline-block;
+            margin-left: 60px;
+            text-align: right;
+        }
+        .small_window{
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            padding-bottom: 60px;
+            width: 100%;
+            height: 60px;
+            border: 1px solid #e1e1e2;
+        }
+        .small_window>.poster{
+            float: left;
+            width: 30%;
+            height: 100%;
+        }
+        .small_window>.poster img{
+            width: 100%;
+            height: 100%;
+        }
+        .small_window>.info{
+            float: left;
+            width: 50%;
+            height: 100%;
+        }
+        .small_window>.info p{
+            margin: 10px 8px;
+        }
+        .small_window>.info p:first-child{
+            color: black;
+        }
+        .small_window>.btngroup{
+            float: left;
+            height: 100%;
+        }
+        .small_window>.btngroup>div{
+            margin: 6px 0px 6px 20px;
+        }
+        .page_content{
+            margin: 60px 0 60px 220px;
+        }
+    </style>
+</head>
+<body>
+    <div class="page_header">page_header</div>
+    <div class="page_footer">page_footer</div>
+    <div class="page_menu">
+        <div class="menu_list">
+            <div class="list">
+                <p class="title">推荐</p>
+                <div class="btngroups">
+                    <p class="btn"><i class="fas fa-music"></i>发现音乐</p>
+                    <p class="btn"><i class="fas fa-podcast"></i>私人FM</p>
+                    <p class="btn"><i class="fas fa-video"></i>MV</p>
+                    <p class="btn"><i class="fas fa-user-plus"></i>我的朋友</p>
+                </div>
+            </div>
+            <div class="list">
+                <p class="title">我的音乐</p>
+                <div class="btngroups">
+                    <p class="btn"><i class="fas fa-music"></i>本地音乐</p>
+                    <p class="btn"><i class="fas fa-download"></i>下载管理</p>
+                    <p class="btn"><i class="fas fa-cloud"></i>我的音乐云盘</p>
+                    <p class="btn"><i class="fas fa-user-plus"></i>我的歌手</p>
+                    <p class="btn"><i class="fas fa-video"></i>我的MV</p>
+                    <p class="btn"><i class="fas fa-podcast"></i>我的电台</p>
+                </div>
+            </div>
+            <div class="list">
+                <p class="title">创建的歌单</p>
+                <div class="btngroups">
+                    <p class="btn"><i class="fas fa-heart"></i>我喜欢的音乐<i class="fas fa-heartbeat favourite-music"></i></p>
+                    <p class="btn"><i class="fas fa-stream"></i>当年烂大街的歌曲</p>
+                    <p class="btn"><i class="fas fa-stream"></i>二次元の钢琴旋律</p>
+                    <p class="btn"><i class="fas fa-stream"></i>给你一张过去的CD,听...</p>
+                </div>
+            </div>
+        </div>
+        <div class="small_window">
+            <div class="poster"><img src="img/01.jpg" /></div>
+            <div class="info">
+                <p>追光者</p>
+                <p>岑琴儿</p>
+            </div>
+            <div class="btngroup">
+                <div><i class="fas fa-heart"></i></div>
+                <div><i class="fas fa-share-square"></i></div>
+            </div>
+        </div>
+    </div>
+    <div class="page_content">page_content</div>
+</body>
+</html>
