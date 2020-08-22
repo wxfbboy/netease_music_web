@@ -230,11 +230,55 @@
             border-bottom-right-radius: 5px;
             padding: 5px 10px;
         }
+        .page_footer>.page_playbar{
+            width: 220px;
+            height: 100%;
+            text-align: center;
+        }
+        .page_footer>.page_playbar>.playbar_playbtn{
+            display: inline-block;
+            background-color: #cb2f2f;
+            width: 40px;
+            height: 40px;
+            margin-left: 17px;
+            border-radius: 50%;
+            position: relative;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+        .page_footer>.page_playbar>.playbar_playbtn>i{
+            font-size: 1.5rem;
+            color: #ffffff;
+            position: relative;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+        .page_footer>.page_playbar>.play{
+            width: 45px;
+            height: 45px;
+        }
+        .page_footer>.page_playbar>.play>i{
+            transform: translateY(-55%);
+        }
     </style>
 </head>
 <body>
     <div class="page_header">page_header</div>
-    <div class="page_footer">page_footer</div>
+    <div class="page_footer">
+        <div class="page_playbar">
+            <div class="playbar_playbtn step-backward">
+                <i class="fas fa-step-backward"></i>
+            </div>
+            <div class="playbar_playbtn play">
+                <i class="fas fa-play"></i>
+            </div>
+            <div class="playbar_playbtn step-forward">
+                <i class="fas fa-step-forward"></i>
+            </div>
+        </div>
+    </div>
     <div class="page_menu">
         <div class="menu_list">
             <div class="list">
