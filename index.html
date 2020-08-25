@@ -230,6 +230,59 @@
             border-bottom-right-radius: 5px;
             padding: 5px 10px;
         }
+
+        .page_content>.page_container>.playlist_tab{
+
+        }
+
+        .page_content>.page_container>.playlist_tab>.tab_btns{
+            color: black;
+            padding:0 30px;
+            border-bottom: 2px solid #cb2f2f;
+        }
+
+        .page_content>.page_container>.playlist_tab>.tab_btns>.btn{
+            display: inline-block;
+            border: 1px solid #c2c2c4;
+            border-bottom: none;
+            padding: 1em 2em;
+        }
+        .page_content>.page_container>.playlist_tab>.tab_btns>.active{
+            background-color: #cb2f2f;
+            color: #ffffff;
+        }
+
+        .page_content>.page_container>.playlist_tab>.tab_musiclist{
+            width: 100%;
+        }
+
+        .page_content>.page_container>.playlist_tab>.tab_musiclist>table{
+            width: 100%;
+        }
+
+        .page_content>.page_container>.playlist_tab>.tab_musiclist>table>thead>tr>th,
+        .page_content>.page_container>.playlist_tab>.tab_musiclist>table>tbody>tr>td
+        {
+            text-align: left;
+            vertical-align: center;
+            padding-left: 10px;
+            height: 3em;
+            max-width: 200px;
+        }
+
+        .page_content>.page_container>.playlist_tab>.tab_musiclist>table>thead>tr>th{
+            border-right: 1px solid #e1e1e2;
+        }
+
+        .page_content>.page_container>.playlist_tab>.tab_musiclist>table>tbody>tr>td{
+            color: black;
+        }
+
+        .page_content>.page_container>.playlist_tab>.tab_musiclist>table>tbody>tr>td>i{
+            display: inline-block;
+            margin-right: 4px;
+        }
+
         .page_footer>.page_playbar{
             float: left;
             width: 220px;
@@ -436,6 +489,108 @@
                 </div>
             </div>
             <div class="playlist_tab">
+                <div class="tab_btns">
+                    <span class="btn active">歌曲列表</span>
+                    <span class="btn">评论(0)</span>
+                    <span class="btn">收藏者</span>
+                </div>
+                <div class="tab_musiclist">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>  </th>
+                            <th>操作</th>
+                            <th>音乐标题</th>
+                            <th>歌手</th>
+                            <th>专辑</th>
+                            <th>时长</th>
+                        </tr>
+                        </thead>
+                        <tbody class="infolist" id="infoList_playlist">
+                        <tr >
+                            <td class="index active" data-num="01"><i class="fa fa-volume-up" aria-hidden="true"></i></td>
+                            <td><i class="fa fa-heart" aria-hidden="true"></i>
+                                <i class="fa fa-download" aria-hidden="true"></i></td>
+                            <td>追光者</td>
+                            <td>岑宁儿</td>
+                            <td>夏至未至 影视原声带</td>
+                            <td>03:55</td>
+                        </tr>
+                        <tr >
+                            <td class="index" data-num="02">02</td>
+                            <td><i class="fa fa-heart" aria-hidden="true"></i>
+                                <i class="fa fa-download" aria-hidden="true"></i></td>
+                            <td>遇到</td>
+                            <td>方雅贤</td>
+                            <td>恶作剧之吻 电视原声带</td>
+                            <td>03:03</td>
+                        </tr>
+                        <tr >
+                            <td class="index" data-num="03">03</td>
+                            <td><i class="fa fa-heart" aria-hidden="true"></i>
+                                <i class="fa fa-download" aria-hidden="true"></i></td>
+                            <td>醉赤壁</td>
+                            <td>林俊杰</td>
+                            <td>JJ陆</td>
+                            <td>04:41</td>
+                        </tr>
+                        <tr >
+                            <td class="index" data-num="04">04</td>
+                            <td><i class="fa fa-heart" aria-hidden="true"></i>
+                                <i class="fa fa-download" aria-hidden="true"></i></td>
+                            <td>小幸运</td>
+                            <td>江珊 / 梁译木</td>
+                            <td>2017跨界歌王 第三期 </td>
+                            <td>04:47</td>
+                        </tr>
+                        <tr >
+                            <td class="index" data-num="05">05</td>
+                            <td><i class="fa fa-heart" aria-hidden="true"></i>
+                                <i class="fa fa-download" aria-hidden="true"></i></td>
+                            <td>Don't Say Goodbye</td>
+                            <td>Danny Cope</td>
+                            <td>Don't Say Goodbye</td>
+                            <td>03:40</td>
+                        </tr>
+                        <tr >
+                            <td class="index" data-num="06">06</td>
+                            <td><i class="fa fa-heart" aria-hidden="true"></i>
+                                <i class="fa fa-download" aria-hidden="true"></i></td>
+                            <td>其实</td>
+                            <td>薛之谦</td>
+                            <td>意外</td>
+                            <td>04:02</td>
+                        </tr>
+                        <tr >
+                            <td class="index" data-num="07">07</td>
+                            <td><i class="fa fa-heart" aria-hidden="true"></i>
+                                <i class="fa fa-download" aria-hidden="true"></i></td>
+                            <td>心动</td>
+                            <td>陈洁仪</td>
+                            <td>重译</td>
+                            <td>03:50</td>
+                        </tr>
+                        <tr >
+                            <td class="index" data-num="08">08</td>
+                            <td><i class="fa fa-heart" aria-hidden="true"></i>
+                                <i class="fa fa-download" aria-hidden="true"></i></td>
+                            <td>有点甜</td>
+                            <td>汪苏泷 / By2</td>
+                            <td>万有引力</td>
+                            <td>03:55</td>
+                        </tr>
+                        <tr >
+                            <td class="index" data-num="09">09</td>
+                            <td><i class="fa fa-heart" aria-hidden="true"></i>
+                                <i class="fa fa-download" aria-hidden="true"></i></td>
+                            <td>全部都是你</td>
+                            <td>Dragon Pig / CNBALLER / CLOUD WANG</td>
+                            <td>全部都是你</td>
+                            <td>03:23</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
