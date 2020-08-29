@@ -14,12 +14,16 @@ $(function () {
        },
        callback:function(data) {
            infoList_playlist(data.result.tracks);
+           refreshDom();
        }
    });
    function infoList_playlist(tracks) {
        $.each(tracks,(index,track)=>{
            let num = index+1>=10?index+1:"0"+(index+1),ablum_name=track.name,artist_arr=[],artist_str = '',duoration = formatTime(track.duration/1000);
            let tr = document.createElement("tr");
+           tr.dataset.id = track.id;
+           tr.dataset.index = index;
+           tr.dataset.mp3Url = `http://music.163.com/song/media/outer/url?id=${track.id}.mp3`;
            $.each(track.artists,(i,v)=>{
                artist_arr.push(v.name);
            })
@@ -33,5 +37,10 @@ $(function () {
            tr.innerHTML = td;
            $("#infoList_playlist").append(tr);
        })
+   }
+   function refreshDom() {
+        let firstTR = $("#infoList_playlist").find("tr").get(0);
+        $("#audio").prop("src",firstTR.dataset.mp3Url);
+        $(firstTR).find("td.index").html("<i class=\"fa fa-volume-up\" aria-hidden=\"true\"></i>").addClass("active");
    }
 }());
