@@ -18,7 +18,7 @@ $(function () {
    });
    function infoList_playlist(tracks) {
        $.each(tracks,(index,track)=>{
-           let num = index+1>=10?index+1:"0"+(index+1),ablum_name=track.name,artist_arr=[],artist_str = '',duoration = formatDate(track.duration/1000);
+           let num = index+1>=10?index+1:"0"+(index+1),ablum_name=track.name,artist_arr=[],artist_str = '',duoration = formatTime(track.duration/1000);
            let tr = document.createElement("tr");
            $.each(track.artists,(i,v)=>{
                artist_arr.push(v.name);
