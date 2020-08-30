@@ -14,6 +14,8 @@ $(function () {
        },
        callback:function(data) {
            infoList_playlist(data.result.tracks);
+           const songTotals = data.result.tracks.length;
+           localStorage.setItem('songTotals',songTotals);
            refreshDom();
        }
    });
