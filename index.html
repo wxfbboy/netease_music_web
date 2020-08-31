@@ -353,40 +353,48 @@
             top: 50%;
             left: 0;
             transform: translateY(-50%);
-        }
-        .page_footer>.page_progressbar>.progressbar>.play_progress{
-            display: inline-block;
-            position: relative;
-            width: 80%;
-            height: 8px;
             background-color: #e6e6e8;
             border-radius: 5px;
+            width: 80%;
+            height: 8px;
         }
         .page_footer>.page_progressbar>.progressbar>.timer1{
+            position: absolute;
             color: black;
-            display: inline-block;
-            width: 8%;
-            text-align: center;
             font-size: 1rem;
+            top: 50%;
+            right: 102%;
+            transform: translateY(-50%);
         }
         .page_footer>.page_progressbar>.progressbar>.timer2{
+            position: absolute;
             color: black;
-            display: inline-block;
-            width: 8%;
-            text-align: center;
             font-size: 1rem;
+            top: 50%;
+            left: 102%;
+            transform: translateY(-50%);
         }
-        .page_footer>.page_progressbar>.progressbar>.play_progress>.progress_cache{
+        .page_footer>.page_progressbar>.progressbar>.progress_cache{
             float: left;
             background-color: #c2c2c4;
             position: absolute;
             left: 0;
             top: 0;
             height: 100%;
-            width: 50%;
+            width: 100%;
             border-radius: 5px;
         }
-        .page_footer>.page_progressbar>.progressbar>.play_progress>.progress_cache>.progress_current{
+        .page_footer>.page_progressbar>.progressbar>.progress_current{
+            float: left;
+            background-color: #cb2f2f;
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 0%;
+            border-radius: 5px;
+        }
+        .page_footer>.page_progressbar>.progressbar>.progress_current>.current_btn{
             background-color: #ffffff;
             border-radius: 50%;
             height: 15px;
@@ -399,7 +407,7 @@
             border: 1px solid #c2c2c4;
             cursor:pointer;
         }
-        .page_footer>.page_progressbar>.progressbar>.play_progress>.progress_cache>.progress_current>.current_dot{
+        .page_footer>.page_progressbar>.progressbar>.progress_current>.current_btn>.current_dot{
             background-color: #cb2f2f;
             border-radius: 50%;
             height: 5px;
@@ -427,15 +435,14 @@
         </div>
         <div class="page_progressbar">
             <div class="progressbar">
-                <div class="timer1">02:30</div>
-                <div class="play_progress">
-                    <div class="progress_cache">
-                        <div class="progress_current">
+                    <div class="progress_cache"></div>
+                    <div class="progress_current" id="progress_current">
+                        <div class="current_btn">
                             <div class="current_dot"></div>
                         </div>
                     </div>
-                </div>
-                <div class="timer2">05:00</div>
+                    <div class="timer1">00:00</div>
+                    <div class="timer2">00:00</div>
             </div>
         </div>
     </div>

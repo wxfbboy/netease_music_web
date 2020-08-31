@@ -21,11 +21,12 @@ $(function () {
    });
    function infoList_playlist(tracks) {
        $.each(tracks,(index,track)=>{
-           let num = index+1>=10?index+1:"0"+(index+1),ablum_name=track.name,artist_arr=[],artist_str = '',duoration = formatTime(track.duration/1000);
+           let num = index+1>=10?index+1:"0"+(index+1),ablum_name=track.name,artist_arr=[],artist_str = '',duration = formatTime(track.duration/1000);
            let tr = document.createElement("tr");
            tr.dataset.id = track.id;
            tr.dataset.index = index;
            tr.dataset.mp3Url = `http://music.163.com/song/media/outer/url?id=${track.id}.mp3`;
+           tr.dataset.duration = `${duration.I}:${duration.S}`;
            $.each(track.artists,(i,v)=>{
                artist_arr.push(v.name);
            })
@@ -35,7 +36,7 @@ $(function () {
                `<td>${track.name}</td>`+
                `<td>${artist_str}</td>`+
                `<td>${ablum_name}</td>`+
-               `<td>${duoration.I}:${duoration.S}</td>`;
+               `<td>${duration.I}:${duration.S}</td>`;
            tr.innerHTML = td;
            $("#infoList_playlist").append(tr);
        })
@@ -43,6 +44,7 @@ $(function () {
    function refreshDom() {
         let firstTR = $("#infoList_playlist").find("tr").get(0);
         $("#audio").prop("src",firstTR.dataset.mp3Url);
+        $(".timer2").html(firstTR.dataset.duration);
         $(firstTR).find("td.index").html("<i class=\"fa fa-volume-up\" aria-hidden=\"true\"></i>").addClass("active");
    }
 }());
