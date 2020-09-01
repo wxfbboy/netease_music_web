@@ -1,5 +1,6 @@
 $(function () {
     let currentIndex = 0;
+    let isDrag = false;
     let audio = $("#audio").get(0);
     $("body").on("click",".play",function () {
         if(audio.paused){
@@ -25,13 +26,15 @@ $(function () {
         playMusic(currentIndex);
     });
     $("#audio").on("timeupdate",function () {
-        let currentTime = formatTime(this.currentTime);
-        let duration = formatTime(this.duration);
-        let percent = (this.currentTime/this.duration)*100;
-        percent = percent.toFixed(2)+'%';
-        $("#progress_current").css("width",percent);
-        $(".timer1").html(currentTime.I+":"+currentTime.S);
-        $(".timer2").html(duration.I+":"+duration.S);
+        if(!isDrag) {
+            let currentTime = formatTime(this.currentTime);
+            let duration = formatTime(this.duration);
+            let percent = (this.currentTime / this.duration) * 100;
+            percent = percent.toFixed(2) + '%';
+            $("#progress_current").css("width", percent);
+            $(".timer1").html(currentTime.I + ":" + currentTime.S);
+            $(".timer2").html(duration.I + ":" + duration.S);
+        }
     });
     $("#audio").on("ended",function () {
         let songTotals = localStorage.getItem('songTotals');
@@ -50,18 +53,25 @@ $(function () {
         playMusic(currentIndex);
     })
     $("body").on("mousedown",".current_btn",function (event) {
+        let currentTime = 0;
+        isDrag = true;
         const current_btn_width = event.clientX-this.getBoundingClientRect().left;
         const moveArc = function (event) {
             let box_width = $(".progressbar").get(0).getBoundingClientRect().width;
             //((触发移动事件时dom的坐标点X - 拖拉按钮左边边距 - 起始点(即边框)坐标点X) = 进度条的长度)/边框的总长度
             let move_distance = event.clientX - current_btn_width - $(".progressbar").get(0).getBoundingClientRect().left;
             let player_percent = (move_distance/box_width*100);
-            player_percent = 0 ? 0 : (player_percent>100?100:player_percent);
+            player_percent = player_percent <= 0 ? 0 : (player_percent>100?100:player_percent);
             $(".progress_current").width(player_percent+"%");
+            currentTime = audio.duration*(player_percent/100);
+            currentTimeObj = formatTime(currentTime);
+            $(".timer1").html(currentTimeObj.I+":"+currentTimeObj.S);
         }
         const upArc = function(event){
             $("body").off("mousemove");
             $("body").off("mouseup");
+            audio.currentTime = currentTime;
+            isDrag = false;
         }
         $("body").on("mousemove",moveArc);
         $("body").on("mouseup",upArc);
@@ -88,4 +98,13 @@ $(function () {
                 break;
         }
     }
+    setInterval(function () {
+        if(audio.readyState==4) {
+            let timeRange = audio.buffered;
+            let bufferedTime = timeRange.end(timeRange.length - 1);
+            let bufferedPercent = (bufferedTime / audio.duration).toFixed(2) * 100+"%";
+
+            $(".progress_cache").css("width", bufferedPercent);
+        }
+    },1000);
 });
