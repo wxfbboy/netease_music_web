@@ -103,6 +103,13 @@ function formatLyric(str) {
 	return crr;
 }
 
+function changeSmallWindows(index) {
+	const currentTR = $("#infoList_playlist").find("tr").get(index);
+	$("#posterCover").prop("src",currentTR.dataset.albumCover);
+	$("#albumName").html(currentTR.dataset.albumName);
+	$("#artistName").html(currentTR.dataset.artistName);
+}
+
 window.requestURL="http://www.igeekhome.com/mplayer/api.php";
 
 $(function () {
@@ -111,4 +118,5 @@ $(function () {
 	window.formatDate=formatDate;
 	window.requestAPI=requestAPI;
 	window.formatLyric=formatLyric;
+	window.changeSmallWindows=changeSmallWindows;
 });

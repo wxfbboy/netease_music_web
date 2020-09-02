@@ -87,6 +87,7 @@ $(function () {
             $(td).html(td.dataset.num).removeClass('active');
         });
         $(currentTR).find("td.index").html("<i class=\"fa fa-volume-up\" aria-hidden=\"true\"></i>").addClass("active");
+        changeSmallWindows(index);
     }
     function changePlayBtnStyle(type) {
         switch (type) {

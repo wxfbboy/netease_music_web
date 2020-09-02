@@ -22,15 +22,18 @@ $(function () {
    function infoList_playlist(tracks) {
        $.each(tracks,(index,track)=>{
            let num = index+1>=10?index+1:"0"+(index+1),ablum_name=track.name,artist_arr=[],artist_str = '',duration = formatTime(track.duration/1000);
+           $.each(track.artists,(i,v)=>{
+               artist_arr.push(v.name);
+           });
+           artist_str = artist_arr.join("/");
            let tr = document.createElement("tr");
            tr.dataset.id = track.id;
            tr.dataset.index = index;
            tr.dataset.mp3Url = `http://music.163.com/song/media/outer/url?id=${track.id}.mp3`;
            tr.dataset.duration = `${duration.I}:${duration.S}`;
-           $.each(track.artists,(i,v)=>{
-               artist_arr.push(v.name);
-           })
-           artist_str = artist_arr.join("/");
+           tr.dataset.albumCover = track.album.picUrl;
+           tr.dataset.albumName = ablum_name;
+           tr.dataset.artistName = artist_str;
            let td = `<td class="index" data-num="${num}">${num}</td>`+
                `<td><i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-download" aria-hidden="true"></i></td>`+
                `<td>${track.name}</td>`+
@@ -46,5 +49,8 @@ $(function () {
         $("#audio").prop("src",firstTR.dataset.mp3Url);
         $(".timer2").html(firstTR.dataset.duration);
         $(firstTR).find("td.index").html("<i class=\"fa fa-volume-up\" aria-hidden=\"true\"></i>").addClass("active");
+        $("#albumCover").prop("src",firstTR.dataset.albumCover);
+        changeSmallWindows(firstTR.dataset.index);
    }
+
 }());
