@@ -75,7 +75,19 @@ $(function () {
         }
         $("body").on("mousemove",moveArc);
         $("body").on("mouseup",upArc);
-    })
+    });
+    $("body").on("click",".poster",function () {
+        $("#pageSongDetail").css("opacity","1");
+        $("#pageSongDetail").css("top","60px");
+        $("#pageSongDetail").css("bottom","-60px");
+        $("#pageSongDetail").css("right","0");
+    });
+    $("body").on("click","#btnCompressPlayBox",function () {
+        $("#pageSongDetail").css("opacity","0");
+        $("#pageSongDetail").css("top","100%");
+        $("#pageSongDetail").css("bottom","100%");
+        $("#pageSongDetail").css("right","100%");
+    });
     function playMusic(index) {
         let trs = $("#infoList_playlist").find("tr");
         let currentTR = trs.get(index);
@@ -88,6 +100,7 @@ $(function () {
         });
         $(currentTR).find("td.index").html("<i class=\"fa fa-volume-up\" aria-hidden=\"true\"></i>").addClass("active");
         changeSmallWindows(index);
+        loadSongDetail(index);
     }
     function changePlayBtnStyle(type) {
         switch (type) {

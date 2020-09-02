@@ -110,6 +110,15 @@ function changeSmallWindows(index) {
 	$("#artistName").html(currentTR.dataset.artistName);
 }
 
+function loadSongDetail(index){
+	const currentTR = $("#infoList_playlist").find("tr").get(index);
+	$("#bgBlur").css("background-image","url('"+currentTR.dataset.albumCover+"')");
+	$("#bgDisc").css("background-image","url('"+currentTR.dataset.albumCover+"')");
+	$("#songNameInfo").html(currentTR.dataset.songName);
+	$("#albumNameInfo").html(currentTR.dataset.albumName);
+	$("#singersName").html(currentTR.dataset.artistName);
+}
+
 window.requestURL="http://www.igeekhome.com/mplayer/api.php";
 
 $(function () {
@@ -119,4 +128,5 @@ $(function () {
 	window.requestAPI=requestAPI;
 	window.formatLyric=formatLyric;
 	window.changeSmallWindows=changeSmallWindows;
+	window.loadSongDetail = loadSongDetail;
 });

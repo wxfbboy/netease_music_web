@@ -29,6 +29,7 @@ $(function () {
            let tr = document.createElement("tr");
            tr.dataset.id = track.id;
            tr.dataset.index = index;
+           tr.dataset.songName = track.name;
            tr.dataset.mp3Url = `http://music.163.com/song/media/outer/url?id=${track.id}.mp3`;
            tr.dataset.duration = `${duration.I}:${duration.S}`;
            tr.dataset.albumCover = track.album.picUrl;
@@ -51,6 +52,7 @@ $(function () {
         $(firstTR).find("td.index").html("<i class=\"fa fa-volume-up\" aria-hidden=\"true\"></i>").addClass("active");
         $("#albumCover").prop("src",firstTR.dataset.albumCover);
         changeSmallWindows(firstTR.dataset.index);
+        loadSongDetail(firstTR.dataset.index);
    }
 
 }());
