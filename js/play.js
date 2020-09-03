@@ -25,6 +25,12 @@ $(function () {
         changePlayBtnStyle('play');
         playMusic(currentIndex);
     });
+    $("#audio").on("play",function () {
+        $(".disc_arc").css("animation-play-state","running");
+    });
+    $("#audio").on("pause",function () {
+        $(".disc_arc").css("animation-play-state","paused");
+    });
     $("#audio").on("timeupdate",function () {
         if(!isDrag) {
             let currentTime = formatTime(this.currentTime);
@@ -101,6 +107,7 @@ $(function () {
         $(currentTR).find("td.index").html("<i class=\"fa fa-volume-up\" aria-hidden=\"true\"></i>").addClass("active");
         changeSmallWindows(index);
         loadSongDetail(index);
+        loadSongLysrc(index);
     }
     function changePlayBtnStyle(type) {
         switch (type) {

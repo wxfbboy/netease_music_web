@@ -108,6 +108,17 @@
 	background-size: 68%;
 	border: 3px solid rgba(251, 251, 251, 0.08);
 	overflow: hidden;
+	animation: discArcRotate 10s linear infinite;
+	animation-play-state: paused;
+}
+
+@keyframes discArcRotate {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
 }
 
 .page_songdetail>.maincontainer>.discsection>.disc_arc>.poster {

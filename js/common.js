@@ -119,6 +119,23 @@ function loadSongDetail(index){
 	$("#singersName").html(currentTR.dataset.artistName);
 }
 
+function loadSongLysrc(index){
+	const currentTR = $("#infoList_playlist").find("tr").get(index);
+	const id = currentTR.dataset.id;
+	requestAPI({
+		url:window.requestURL,
+		data:{
+			"API_type":'get_music_lyric',
+			"queryString":{
+				"id":id
+			}
+		},
+		callback:function(data) {
+			resetLysrc(data.lrc.lyric);
+		}
+	});
+}
+
 window.requestURL="http://www.igeekhome.com/mplayer/api.php";
 
 $(function () {
@@ -129,4 +146,5 @@ $(function () {
 	window.formatLyric=formatLyric;
 	window.changeSmallWindows=changeSmallWindows;
 	window.loadSongDetail = loadSongDetail;
+	window.loadSongLysrc = loadSongLysrc;
 });

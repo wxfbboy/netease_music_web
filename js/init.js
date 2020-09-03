@@ -53,6 +53,7 @@ $(function () {
         $("#albumCover").prop("src",firstTR.dataset.albumCover);
         changeSmallWindows(firstTR.dataset.index);
         loadSongDetail(firstTR.dataset.index);
+        loadSongLysrc(firstTR.dataset.index);
    }
 
 }());
